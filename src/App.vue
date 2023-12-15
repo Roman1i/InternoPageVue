@@ -1,31 +1,60 @@
 <template>
   <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
-    <router-view/>
+    <HeaderBlock></HeaderBlock>
+    <router-view></router-view>
+    <FooterBlock></FooterBlock>
   </div>
 </template>
 
+<script>
+import { mapGetters, mapMutations } from 'vuex'
+import HeaderBlock from './components/HeaderBlock.vue'
+import FooterBlock from './components/FooterBlock.vue'
+
+export default {
+  name: 'app',
+  components: {
+    HeaderBlock,
+    FooterBlock
+  },
+  methods: {
+    ...mapMutations(['SET_ACTIVE_PROJECT'])
+  },
+  computed: {
+    ...mapGetters(['getHomeProjects', 'getHomeArticles', 'getBlogNews', 'sortedProjects'])
+  }
+}
+</script>
+
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+* {
+  padding: 0px;
+  margin: 0px;
 }
 
-nav {
-  padding: 30px;
+a {
+    text-decoration: none;
+}
 
+.center {
+    margin-left: calc(50vw - 1200px/2);
+    margin-right: calc(50vw - 1200px/2);
+    width: 1200px;
+}
+// #app {
+//   font-family: Avenir, Helvetica, Arial, sans-serif;
+//   -webkit-font-smoothing: antialiased;
+//   -moz-osx-font-smoothing: grayscale;
+//   text-align: center;
+//   color: #2c3e50;
+// }
+
+nav {
   a {
-    font-weight: bold;
-    color: #2c3e50;
+    color: #292F36;
 
     &.router-link-exact-active {
-      color: #42b983;
+      color: #CDA274;
     }
   }
 }
