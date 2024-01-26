@@ -8,7 +8,7 @@ export default new Vuex.Store({
     homeProjects: [{
       name: 'Modern Kitchan',
       type: 'Decor / Artchitecture',
-      imageSrc: 'project1.png'
+      imageSrc: './img/project1.png'
     }, {
       name: 'Modern Kitchan',
       type: 'Decor / Artchitecture',
